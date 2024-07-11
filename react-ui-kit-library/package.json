@@ -1,17 +1,30 @@
 {
-  "name": "ui-library",
-  "private": true,
-  "version": "0.0.0",
+  "name": "react-ui-kit-library",
+  "version": "0.0.1",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/react-ui-kit-library.umd.cjs",
+  "module": "./dist/react-ui-kit-library.js",
+  "exports": {
+    ".": {
+      "import": "./dist/react-ui-kit-library.js",
+      "require": "./dist/react-ui-kit-library.umn.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
+    "prebuild": "rm -rf dist",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
