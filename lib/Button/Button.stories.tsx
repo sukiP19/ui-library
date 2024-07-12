@@ -9,14 +9,22 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {
+export const Text: Story = {
   args: {
-   children: "Click me!"
+   children: "Text"
   },
 };
 
-export const Emoji: Story = {
+export const Contained: Story = {
     args: {
-     children: "😄"
+     variant: "contained",
+     children: "Default"
     }
-  };
+};
+
+export const Outlined: Story = {
+    args: {
+     variant: "outlined",
+     children: "Outlined"
+    }
+};

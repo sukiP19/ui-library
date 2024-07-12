@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-        <Button>hello</Button>
+        <Button variant="contained">hello</Button>
     </>
   )
 }
