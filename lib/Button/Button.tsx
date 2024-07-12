@@ -21,25 +21,16 @@ export const Button = ({ children, variant = 'text', className, size, ...props }
     lg: 'text-lg',
   };
 
-  let combinedClasses = baseClasses;
-
-  // Build variant classes conditionally
-  if (variantStyles[variant]) {
-    combinedClasses += ` ${variantStyles[variant]}`;
-  }
-
-  // Build size classes conditionally
-  if (size && sizeStyles[size]) {
-    combinedClasses += ` ${sizeStyles[size]}`;
-  }
-
-  // Add custom class if provided
-  if (className) {
-    combinedClasses += ` ${className}`;
-  }
+  // Combine classes using spread operator and filter
+  const finalClasses = [
+    baseClasses,
+    variantStyles[variant],
+    size && sizeStyles[size],
+    className, // Ensure custom class comes last
+  ].filter(Boolean).join(' ');
 
   return (
-    <button type="button" className={combinedClasses} {...props}>
+    <button type="button" className={finalClasses} {...props}>
       {children}
     </button>
   );
